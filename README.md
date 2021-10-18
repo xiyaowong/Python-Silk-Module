@@ -2,9 +2,18 @@
 
 ## Installation
 
+### Linux
+
 ```bash
-pip install python-silk
+# clone this repo
+cd Python-Silk-Module
+pip install pybind11
+pip install .
 ```
+
+### windows
+
+pip install python-silk
 
 If you get some issues with building, check documentation of [pybind11](https://pybind11.readthedocs.io)
 
