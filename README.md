@@ -1,64 +1,35 @@
-Python silk module. --- pysilk ---
-=============
+# pysilk
 
-APIs
-------------
+## Installation
 
-See `test\test.py`.
+```bash
+pip install python-silk
 ```
-import pysilk as m
-m.silkEncode(buf , 24000)
-m.silkDecode(buf , 24000)
-#the first param is buffer of data, the second param is sample rate.
+
+If you get some issues with building, check documentation of [pybind11](https://pybind11.readthedocs.io)
+
+## Usage
+
+```python
+from pysilk import async_decode, async_encode, decode, encode
 ```
-In PyCharm and other IDEs like vscode, the param is supposed to be
-highlighted. And a breif intro in appended.
 
+Only four functions: `encode`, `decode`, `async_encode`, `async_decode`
 
-Installation
-------------
+It's very easy to use. Just follow the IDE/editor typing intergration and check out the docs of these functions
 
-**On Unix (Linux, OS X)**
+**NOTE**:
 
- - clone this repository
- - `pip install .`
+The first argument `input` can be a `str`, `pathlib.Path`, `bytes`, `BytesIO` or `BinaryIO` liked object.
 
-**On Windows (Requires Visual Studio 2015)**
+`str` and `pathlib.Path` are both meaning local file path
 
- - For Python 3.5+:
-     - clone this repository
-     - `pip install .`
- - For Python 2.7:
+**The source data of input and returned data must be the original PCM coded data**
 
-   No longer supported.
+## Author
 
-   Note that this requires the user building `pysilk` to have registry edition
-   rights on the machine, to be able to run the `vcvarsall.bat` script.
+[DCZYewen](https://github.com/DCZYewen/Python-Silk-Module)
 
+## License
 
-Building the documentation
---------------------------
-
-Documentation for the example project is generated using Sphinx. Sphinx has the
-ability to automatically inspect the signatures and documentation strings in
-the extension module to generate beautiful documentation in a variety formats.
-The following command generates HTML-based reference documentation; for other
-formats please refer to the Sphinx manual:
-
- - `cd ./docs`
- - `make html`
-
-Notices
---------------------------
-
-I only tested it on Windows 10, Visual Studio 2019, python3.8. If you are interested in
-reporting issues on build errors or bugs, please open an issue or email me at contact@basicws.net.
-
-License
--------
-
-All the licenses are in the LICENSE file. This project is also
-released under BSD lisence.
-
-
-[`cibuildwheel`]:          https://cibuildwheel.readthedocs.io
+All the licenses are in the LICENSE file. This project is also released under BSD lisence.
