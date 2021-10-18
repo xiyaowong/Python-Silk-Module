@@ -2,7 +2,7 @@
 
 int __dllexport
 silkEncode(unsigned char* pcmData, int dataLen,
-int sampleRate, cb_codec callback, void* userdata)
+int sampleRate, cb_codec callback, void* userdata, bool tencent)
 {
   size_t    counter;
   SKP_int16 nBytes;
@@ -51,7 +51,10 @@ int sampleRate, cb_codec callback, void* userdata)
     goto failed;
 
   /* Add Silk header to stream */
-  callback(userdata, (unsigned char*)"\x02#!SILK_V3", sizeof(char) * 10);
+  if (tencent) {
+    callback(userdata, (unsigned char*)"\x02", sizeof(char));
+  }
+  callback(userdata, (unsigned char*)"#!SILK_V3", sizeof(char) * 9);
 
   /* Create Encoder */
   result = SKP_Silk_SDK_Get_Encoder_Size(&encSizeBytes);
@@ -131,10 +134,14 @@ int sampleRate, cb_codec callback, void* userdata)
   SKP_SILK_SDK_DecControlStruct DecControl;
 
   /* Check Silk header */
-  if (strncmp((char*)psRead, "\x02#!SILK_V3", 0x0A) != 0)
-  goto failed;
+  if (strncmp((char*)psRead, "\x02#!SILK_V3", 0x0A) == 0) {
+    psRead += 0x0A;
+  } else if (strncmp((char*)psRead, "#!SILK_V3", 9) == 0) {
+    psRead += 9;
+  } else {
+    goto failed;
+  }
   
-  psRead += 0x0A;
 
   /* Create decoder */
   result = SKP_Silk_SDK_Get_Decoder_Size(&decSizeBytes);

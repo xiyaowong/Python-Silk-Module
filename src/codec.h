@@ -43,9 +43,11 @@ int __dllexport silkDecode(unsigned char* silkData, int dataLen, int sampleRate,
  *
  * @param userdata user data
  *
+ * @param tencent Compatible with QQ/Wechat
+ *
  * @return 1 = success, 0 = failed
  */
-int __dllexport silkEncode(unsigned char* pcmData, int dataLen, int sampleRate, cb_codec callback, void* userdata);
+int __dllexport silkEncode(unsigned char* pcmData, int dataLen, int sampleRate, cb_codec callback, void* userdata, bool tencent);
 
 
 #define _CRT_SECURE_NO_WARNINGS
