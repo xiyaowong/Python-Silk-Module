@@ -1,13 +1,5 @@
-from .pysilk import encode, encode_file, decode, decode_file
-from .pysilk import async_encode, async_encode_file, async_decode, async_decode_file
+"""Python silk data encodings"""
 
-__all__ = [
-    "encode",
-    "encode_file",
-    "decode",
-    "decode_file",
-    "async_encode",
-    "async_encode_file",
-    "async_decode",
-    "async_decode_file"
-]
+from ._internal import async_decode, async_encode, decode, encode
+
+__all__ = ('encode', 'decode', 'async_encode', 'async_decode')
