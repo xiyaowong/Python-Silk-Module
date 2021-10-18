@@ -5,17 +5,14 @@
 ### Linux
 
 ```bash
-# clone this repo
-cd Python-Silk-Module
-pip install pybind11
-pip install .
+pip install git+https://github.com/xiyaowong/Python-Silk-Module
 ```
 
 ### windows
 
 `pip install python-silk`
 
-如果安装不成功，也请使用本地安装的方法，先克隆仓库，在仓库目录里运行`pip install .`
+如果安装不成功，就也使用第一种`pip install git+https://github.com/xiyaowong/Python-Silk-Module`
 
 If you get some issues with building, check documentation of [pybind11](https://pybind11.readthedocs.io)
 
