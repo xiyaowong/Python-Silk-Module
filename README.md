@@ -13,7 +13,9 @@ pip install .
 
 ### windows
 
-pip install python-silk
+`pip install python-silk`
+
+如果安装不成功，也请使用本地安装的方法，先克隆仓库，在仓库目录里运行`pip install .`
 
 If you get some issues with building, check documentation of [pybind11](https://pybind11.readthedocs.io)
 
