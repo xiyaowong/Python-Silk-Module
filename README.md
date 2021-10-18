@@ -37,7 +37,7 @@ The first argument `input` can be a `str`, `pathlib.Path`, `bytes`, `BytesIO` or
 
 ## Author
 
-Due to some reasons, it can's be merged into upstream, I have contacted the original author and kept the fork version as a separate project
+Due to some reasons, these changes can't be merged into upstream, I have contacted the original author and kept the fork version as a separate project
 
 [DCZYewen](https://github.com/DCZYewen/Python-Silk-Module)
 
